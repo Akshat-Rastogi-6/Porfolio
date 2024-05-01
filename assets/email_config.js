@@ -25,4 +25,9 @@ document.getElementById('contact-form').addEventListener('submit', function(even
       alert('An error occurred while sending your message. Please try again later.');
     });
   });
+
+  document.getElementById("hire-button").addEventListener("click", function() {
+    document.getElementById("message").value = "I'm interested in hiring you. Please contact me!";
+    document.getElementById("contact-form").scrollIntoView({ behavior: 'smooth' });
+  });
   

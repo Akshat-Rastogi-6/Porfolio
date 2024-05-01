@@ -427,6 +427,20 @@
   transform: scale(1.35);
 }
 
+.icons {
+  margin: 20px;
+}
+
+.icons a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.icons i {
+  font-size: 2em;
+  padding: 10px;
+}
+
   /* Media query for mobile devices with screen size up to 768px */
   @media (max-width: 768px) {
     header {
