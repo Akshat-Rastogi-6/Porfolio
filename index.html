@@ -173,10 +173,10 @@
     </div>
 
     <div class="contact-form">
-      <form action="">
-        <input type="" placeholder="Name" required>
-        <input type="email" placeholder="Email" required">
-        <textarea name="" id="" cols="30" rows="10" placeholder="Message" required></textarea>
+      <form id="contact-form">
+        <input type="text" placeholder="Name" id="name" required>
+        <input type="email" placeholder="Email" id="email" required>
+        <textarea id="message" cols="30" rows="10" placeholder="Message" required></textarea>
         <input type="submit" value="Send Message" class="send-btn">
       </form>
     </div>
@@ -191,6 +191,10 @@
 
   <!-- JS Script Link -->
   <script src="assets/script.js"></script>
+  
+  <!-- script for email purpose -->
+  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+  <script src="assets/email_config.js"></script> 
 
 </body>
 </html>
