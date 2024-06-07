@@ -535,5 +535,65 @@
       padding: 30px 20px;
     }
   }
+
+  /* Acheivements */
+
+  
+@keyframes slide {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+.logos {
+  overflow: hidden;
+  padding: 60px 0;
+  background: #10101a;
+  white-space: nowrap;
+  position: relative;
+}
+
+.logos:before,
+.logos:after {
+  position: absolute;
+  top: 0;
+  width: 250px;
+  height: 100%;
+  content: "";
+  z-index: 2;
+}
+
+.logos:before {
+  left: 0;
+}
+
+.logos:after {
+  right: 0;
+}
+
+.logos:hover .logos-slide {
+  animation-play-state: paused;
+}
+
+.logos-slide {
+  display: inline-block;
+  animation: 60s slide infinite linear;
+}
+
+.logos-slide img {
+  height: 500px;
+  margin: 0 40px;
+}
+
+@media (max-width: 768px) {
+  .logos-slide img {
+    height: 200px;
+    margin: 0 40px;
+  }
+}
+
   
   

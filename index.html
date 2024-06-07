@@ -167,30 +167,28 @@
   </section>
   <!-- End of Resume Section -->
 
-  <!-- <section class="achievement" id = "achievement">
-    <div class="center">
-      <h3>Achievements & Certifications</h3>
-    </div>
+  <!-- Achievements -->
+ <section id="achievement">
+   <div class="center">
+     <h3>Achievements and Certifications</h3>
+   </div>
 
-    <div class="service-content">
-      <div class="row">
-
-      </div>
-
-      <div class="row">
-        
-      </div>
-
-      <div class="row">
-        
-      </div>
-
-      <div class="row">
-        
-      </div>
-    </div>
-
-  </section> -->
+   <div class="logos">
+ 
+ 
+     <div class="logos-slide">
+       <img src="assets/deep_image.png" />
+       <img src="assets/deep_l.jpeg" />
+       <img src="assets/michigan.png" />
+       <img src="assets/ml.jpeg" />
+       <img src="assets/ml1.jpeg" />
+       <img src="assets/python.jpeg" />
+       <img src="assets/python2.jpeg" />
+       <img src="assets/research.jpeg" />
+       <img src="assets/sql.png" />
+     </div>
+   </div>
+ </section>
 
   <!-- Start of Contact Section -->
   <section class="contact" id="contact">
@@ -229,6 +227,11 @@
   <!-- script for email purpose -->
   <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
   <script src="assets/email_config.js"></script> 
+
+  <script>
+    var copy = document.querySelector(".logos-slide").cloneNode(true);
+    document.querySelector(".logos").appendChild(copy);
+  </script>
 
 </body>
 </html>
