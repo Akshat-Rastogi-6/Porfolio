@@ -595,5 +595,81 @@
   }
 }
 
-  
-  
+
+
+/* Cool infinite background scrolling animation.
+ * Twitter: @kootoopas
+ */
+/* Exo thin font from Google. */
+@import url(https://fonts.googleapis.com/css?family=Exo:100);
+/* Animations */
+@-webkit-keyframes bg-scrolling-reverse {
+  100% {
+    background-position: 50px 50px;
+  }
+}
+@-moz-keyframes bg-scrolling-reverse {
+  100% {
+    background-position: 50px 50px;
+  }
+}
+@-o-keyframes bg-scrolling-reverse {
+  100% {
+    background-position: 50px 50px;
+  }
+}
+@keyframes bg-scrolling-reverse {
+  100% {
+    background-position: 50px 50px;
+  }
+}
+@-webkit-keyframes bg-scrolling {
+  0% {
+    background-position: 50px 50px;
+  }
+}
+@-moz-keyframes bg-scrolling {
+  0% {
+    background-position: 50px 50px;
+  }
+}
+@-o-keyframes bg-scrolling {
+  0% {
+    background-position: 50px 50px;
+  }
+}
+@keyframes bg-scrolling {
+  0% {
+    background-position: 50px 50px;
+  }
+}
+/* Main styles */
+:root {
+  --bg-color: #10101a;
+  --main-color: #9370DB;
+  --2nd-main-color: #ffffffcc;
+  --text-color: #fff;
+  --big-font: 5rem;
+  --h2-font: 1.9rem;
+  --p-font: 1rem;
+}
+
+body {
+  background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAACbSURBVGhD7dqhEcJAEEbhPWzU6Zh4DD2FAijh0DE4Iq4oSkgHqOjAMFfEO+Z9aud3z29a1+cxz9eYpkv0attekY6vnMc29WlZ7pHG8Xzs+7tNfRqGHKd2d88QGkNoDKExhMYQGkNoDKExhMYQGkNoDKExhMYQGkNoDKExhMYQGkNoDKExhMYQGkNo/ibk969Va41SHm3qTym3+ACpRhpReOCwEwAAAABJRU5ErkJggg==') repeat 0 0;
+  -webkit-animation: bg-scrolling-reverse 5s infinite;
+  -moz-animation: bg-scrolling-reverse 5s infinite;
+  -o-animation: bg-scrolling-reverse 5s infinite;
+  animation: bg-scrolling-reverse 5s infinite;
+  -webkit-animation-timing-function: linear;
+  -moz-animation-timing-function: linear;
+  -o-animation-timing-function: linear;
+  animation-timing-function: linear;
+}
+
+/* body::before {
+  content: "INFINITY";
+  font-size: var(--big-font);
+  font-weight: 100;
+  font-style: normal;
+  color: var(--main-color);
+} */
