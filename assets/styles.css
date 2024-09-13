@@ -34,7 +34,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: var(--bg--color);
+    /* background: var(--bg--color); */
     padding: 24px 14%;
     transition: .3s;
   }
@@ -250,7 +250,11 @@
     font-weight: 300;
     margin-bottom: 30px;
   }
-  
+
+  .achievement {
+    width: 100%;
+    padding: 150px 0;
+  }
   /* Resume Section */
   .resume {
     text-align: center;
