@@ -38,6 +38,11 @@
     padding: 24px 14%;
     transition: .3s;
   }
+
+  header.scrolled {
+    background-color: var(--bg--color); /* Change to the desired color */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional shadow */
+  }
   
   /* Navbar */
   .logo {
