@@ -821,6 +821,7 @@ body {
   padding: 5px 10px;
   border-radius: 8px;
   color: #0b0b13;
+    max-width: 80%;
 }
 
 .chatbot-container {
