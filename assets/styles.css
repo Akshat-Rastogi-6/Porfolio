@@ -748,7 +748,7 @@ body {
   border: none;
   font-size: 20px;
   cursor: pointer;
-  color: #888;
+  color: white;
 }
 
 .chatbot-close:hover {
