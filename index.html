@@ -208,6 +208,24 @@
   </section>
   <!-- End of Contact Section -->
 
+  <!-- Chatbot -->
+  <button class="chatbot-toggle" id="chatbot-icon" title="c">
+    <i class="bx bxs-chat"></i>
+  </button>
+
+  <div class="chatbot-container">
+    <div class="chatbot-header">
+      Chatbot
+      <button class="chatbot-close" id="chatbot-close">&times;</button>
+    </div>
+    <div class="chatbot-messages" id="chatbot-messages"></div>
+    <div class="chatbot-input-container">
+      <input type="text" id="chatbot-input" placeholder="Type a message...">
+      <button id="chatbot-send" type="button">Send</button>
+    </div>
+  </div>
+  
+  
   
 
   <!-- Start of Footer Section -->
@@ -238,6 +256,117 @@
       }
     });
   </script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+  // Variables to handle chatbot visibility and actions
+  const chatbotToggle = document.querySelector('.chatbot-toggle');
+  const chatbotContainer = document.querySelector('.chatbot-container');
+  const chatbotInput = document.getElementById('chatbot-input');
+  const chatbotMessages = document.getElementById('chatbot-messages');
+  const chatbotSend = document.getElementById('chatbot-send');
+  const chatbotClose = document.getElementById('chatbot-close');
+
+  // Track visibility status to control toggle state
+  let isChatbotVisible = false;
+
+  // Toggle visibility when chatbot button is clicked
+  chatbotToggle.addEventListener('click', () => {
+    chatbotContainer.style.display = isChatbotVisible ? 'none' : 'flex';
+    isChatbotVisible = !isChatbotVisible;
+  });
+
+  chatbotClose.addEventListener('click', () => {
+    chatbotContainer.style.display = 'none';
+    isChatbotVisible = false;
+  });
+
+  // Add message to chat
+  function addMessage(text, className) {
+    const messageElement = document.createElement('div');
+    messageElement.textContent = text;
+    messageElement.classList.add('chatbot-message', className);
+    chatbotMessages.appendChild(messageElement);
+    // chatbotMessages.scrollTop = chatbotMessages.scrollHeight;  // Scroll to the bottom
+  }
+
+  // Add message with delay (for long responses)
+  function addMessageWithDelay(text, className) {
+    const messageElement = document.createElement('div');
+    messageElement.classList.add('chatbot-message', className);
+    chatbotMessages.appendChild(messageElement);
+
+    let index = 0;
+    const interval = setInterval(() => {
+      messageElement.textContent += text[index];
+      index++;
+      if (index === text.length) {
+        clearInterval(interval);
+        chatbotMessages.scrollTop = chatbotMessages.scrollHeight; // Ensure scroll to bottom
+      }
+    }, 50);  // 50ms delay between each character
+  }
+
+  // Handle sending a message and getting a response from the API
+  chatbotSend.addEventListener('click', (event) => {
+    event.preventDefault();
+
+    const message = chatbotInput.value.trim();
+    if (message) {
+        // Add user message to chat
+        addMessage(message, 'user-message');
+
+        // Ensure chatbot is visible
+        chatbotContainer.style.display = 'flex';
+        isChatbotVisible = true;
+
+        // Send message to API
+        fetch('https://portfolio-chatbot-jpis.onrender.com/chat', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ message: message }),
+        })
+            .then(response => response.json())
+            .then(data => {
+                if (data.response) {
+                    addMessageWithDelay(data.response, 'bot-message');
+                } else {
+                    addMessageWithDelay('Sorry, I could not understand that.', 'bot-message');
+                }
+            })
+            .catch(error => {
+                console.error("Fetch error:", error);
+                addMessageWithDelay('Sorry, something went wrong.', 'bot-message');
+            });
+
+        chatbotInput.value = ''; // Clear input field
+    }
+});
+
+function sendHelloMessage() {
+      const message = 'Hello';
+      fetch('https://portfolio-chatbot-jpis.onrender.com/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message: message }),
+      })
+        .then(response => response.json())
+        .then(data => {
+          if (data.response) {
+            addMessageWithDelay(data.response, 'bot-message');
+          } else {
+            addMessageWithDelay('Sorry, I could not understand that.', 'bot-message');
+          }
+        })
+        .catch(error => {
+          console.error("Fetch error:", error);
+          addMessageWithDelay('Sorry, something went wrong.', 'bot-message');
+        });
+    }
+    // Ensure chatbot is visible and send hello message on load
+    // chatbotContainer.style.display = 'flex';
+    sendHelloMessage();
+});
+</script>
 
 </body>
 </html>
