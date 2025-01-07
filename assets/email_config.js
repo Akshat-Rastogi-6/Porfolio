@@ -1,5 +1,5 @@
 // your_config.js
-emailjs.init('kUb7DHGBGSoC_P7J4');
+emailjs.init({publicKey : 'uRaOggD5yN0CVZl2O'});
 
 document.getElementById('contact-form').addEventListener('submit', function(event) {
     event.preventDefault();
@@ -10,7 +10,7 @@ document.getElementById('contact-form').addEventListener('submit', function(even
     var message = document.getElementById('message').value;
     
     // Send email using EmailJS
-    emailjs.send("service_zo4fhia", "template_7vwux1c", {
+    emailjs.send("service_2ic6gc9", "template_nwyiq7y", {
       from_name: name,
       from_email: email,
       message: message
