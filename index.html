@@ -320,7 +320,7 @@
         isChatbotVisible = true;
 
         // Send message to API
-        fetch('http://127.0.0.1:8001/chat', {
+        fetch('https://portfolio-chatbot-jpis.onrender.com/chat', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ message: message }),
